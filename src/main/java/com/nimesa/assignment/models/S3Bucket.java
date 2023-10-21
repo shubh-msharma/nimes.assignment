@@ -18,4 +18,6 @@ public class S3Bucket {
     private String id;
     @Column
     private String name;
+    @Column(name = "object_count")
+    private int objectCount;
 }

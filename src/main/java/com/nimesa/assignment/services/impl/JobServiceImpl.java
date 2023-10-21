@@ -46,10 +46,10 @@ public class JobServiceImpl implements JobService {
     }
 
     @Override
-    public Job createAndGetJob() {
+    public Job createAndGetJob(Status status) {
         Job job = Job.builder()
                 .createdOn(Instant.now().toEpochMilli())
-                .status(Status.in_process)
+                .status(status)
                 .id(UUID.randomUUID().toString())
                 .build();
         return jobRepo.save(job);

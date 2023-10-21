@@ -32,7 +32,7 @@ public class AwsServiceImpl implements AwsService {
     @Override
     public ResponseEntity<?> discoverServices(List<String> services) {
         if(null == services || services.isEmpty()) throw new MissingRequiredParamException("services");
-        Job job = jobService.createAndGetJob();
+        Job job = jobService.createAndGetJob(Status.in_process);
         new Thread(() -> {
             ExecutorService service = Executors.newFixedThreadPool(2);
             List<Callable<Boolean>> callables = new LinkedList<>();
