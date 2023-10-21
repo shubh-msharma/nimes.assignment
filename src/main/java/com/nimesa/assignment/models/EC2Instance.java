@@ -16,6 +16,5 @@ import lombok.*;
 public class EC2Instance {
     @Id
     private String id;
-    @Column
-    private String name;
+
 }

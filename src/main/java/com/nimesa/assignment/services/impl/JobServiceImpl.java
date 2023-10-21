@@ -1,5 +1,6 @@
 package com.nimesa.assignment.services.impl;
 
+import com.nimesa.assignment.enums.Status;
 import com.nimesa.assignment.exceptions.EntityNotFoundException;
 import com.nimesa.assignment.exceptions.MissingRequiredParamException;
 import com.nimesa.assignment.models.Job;
@@ -12,7 +13,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -35,5 +38,20 @@ public class JobServiceImpl implements JobService {
                         .status(HttpStatus.OK)
                         .data(job.getStatus())
                         .build());
+    }
+
+    @Override
+    public void saveJob(Job job) {
+        jobRepo.save(job);
+    }
+
+    @Override
+    public Job createAndGetJob() {
+        Job job = Job.builder()
+                .createdOn(Instant.now().toEpochMilli())
+                .status(Status.in_process)
+                .id(UUID.randomUUID().toString())
+                .build();
+        return jobRepo.save(job);
     }
 }

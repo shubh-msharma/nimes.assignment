@@ -21,4 +21,6 @@ public class Job {
     private long createdOn;
     @Column
     private Status status;
+    @Column
+    private String reason;
 }
