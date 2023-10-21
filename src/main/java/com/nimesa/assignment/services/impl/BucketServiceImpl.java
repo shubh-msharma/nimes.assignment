@@ -84,7 +84,7 @@ public class BucketServiceImpl implements BucketService {
                             count.incrementAndGet();
                             s3ObjectRepo.save(s3Object);
                         });
-                bucket.setObjectCount(count.get());
+                bucket.setObjectCount(bucket.getObjectCount() + count.get());
                 bucketRepo.save(bucket);
                 job.setStatus(Status.success);
                 jobService.saveJob(job);
