@@ -1,10 +1,9 @@
 package com.nimesa.assignment.models;
 
-import com.amazonaws.services.s3.model.Owner;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import lombok.*;
 
 import java.util.Date;

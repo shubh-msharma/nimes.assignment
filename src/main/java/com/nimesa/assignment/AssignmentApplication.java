@@ -2,6 +2,8 @@ package com.nimesa.assignment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 /*
 1. DiscoverServices(List<String> services)
 
@@ -45,6 +47,7 @@ Output: List of file names matching the pattern
 Get the result from the DB
  */
 @SpringBootApplication
+@EnableSwagger2
 public class AssignmentApplication {
 
 	public static void main(String[] args) {
