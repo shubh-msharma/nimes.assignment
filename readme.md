@@ -57,7 +57,9 @@ This application depends on the following environment variables for proper confi
 
 - `SPRING_DATASOURCE_PASSWORD`: The password for the database connection.
 
-- `SPRING_DATASOURCE_DRIVER_CLASS_NAME`: The driver class name for the database connection.  
+- `SPRING_DATASOURCE_DRIVER_CLASS_NAME`: The driver class name for the database connection.
+
+- `DB_NAME`: The database name, required for connection with postgres
 
 ## Running the Spring Boot Application  
 
