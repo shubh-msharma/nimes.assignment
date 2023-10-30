@@ -1,6 +1,6 @@
 package com.nimesa.assignment.repositories;
 
-import com.nimesa.assignment.models.S3Bucket;
+import com.nimesa.assignment.models.entities.S3Bucket;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;

@@ -1,6 +1,6 @@
 package com.nimesa.assignment.repositories;
 
-import com.nimesa.assignment.models.EC2Instance;
+import com.nimesa.assignment.models.entities.EC2Instance;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

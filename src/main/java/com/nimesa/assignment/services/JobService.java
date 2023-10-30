@@ -1,7 +1,7 @@
 package com.nimesa.assignment.services;
 
 import com.nimesa.assignment.enums.Status;
-import com.nimesa.assignment.models.Job;
+import com.nimesa.assignment.models.entities.Job;
 import org.springframework.http.ResponseEntity;
 
 public interface JobService {

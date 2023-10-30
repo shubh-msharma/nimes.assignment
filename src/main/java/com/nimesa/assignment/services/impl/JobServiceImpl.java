@@ -3,7 +3,7 @@ package com.nimesa.assignment.services.impl;
 import com.nimesa.assignment.enums.Status;
 import com.nimesa.assignment.exceptions.EntityNotFoundException;
 import com.nimesa.assignment.exceptions.MissingRequiredParamException;
-import com.nimesa.assignment.models.Job;
+import com.nimesa.assignment.models.entities.Job;
 import com.nimesa.assignment.models.dtos.ApiResponse;
 import com.nimesa.assignment.repositories.JobRepo;
 import com.nimesa.assignment.services.JobService;
@@ -48,7 +48,7 @@ public class JobServiceImpl implements JobService {
     @Override
     public Job createAndGetJob(Status status) {
         Job job = Job.builder()
-                .createdOn(Instant.now().toEpochMilli())
+                .createdOn(Instant.now())
                 .status(status)
                 .id(UUID.randomUUID().toString())
                 .build();

@@ -1,6 +1,6 @@
 package com.nimesa.assignment.repositories;
 
-import com.nimesa.assignment.models.S3Object;
+import com.nimesa.assignment.models.entities.S3Object;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

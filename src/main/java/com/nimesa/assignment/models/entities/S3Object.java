@@ -1,4 +1,4 @@
-package com.nimesa.assignment.models;
+package com.nimesa.assignment.models.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +14,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "objects")
+@Table(name = "s3_objects")
 public class S3Object {
     @Id
     private String id;
@@ -26,7 +26,7 @@ public class S3Object {
     private String objectKey;
     @Column(name = "e_tag")
     private String eTag;
-    @Column
+    @Column(name = "object_size")
     private long size;
     @Column(name = "storage_class")
     private String storageClass;

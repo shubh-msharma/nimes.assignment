@@ -5,9 +5,9 @@ import com.amazonaws.services.s3.model.ListObjectsRequest;
 import com.nimesa.assignment.enums.Status;
 import com.nimesa.assignment.exceptions.EntityNotFoundException;
 import com.nimesa.assignment.exceptions.MissingRequiredParamException;
-import com.nimesa.assignment.models.Job;
-import com.nimesa.assignment.models.S3Bucket;
-import com.nimesa.assignment.models.S3Object;
+import com.nimesa.assignment.models.entities.Job;
+import com.nimesa.assignment.models.entities.S3Bucket;
+import com.nimesa.assignment.models.entities.S3Object;
 import com.nimesa.assignment.models.dtos.ApiResponse;
 import com.nimesa.assignment.repositories.BucketRepo;
 import com.nimesa.assignment.repositories.S3ObjectRepo;
@@ -35,15 +35,20 @@ public class BucketServiceImpl implements BucketService {
 
     @Override
     public boolean discoverAndSaveBuckets() {
-        amazonS3.listBuckets().parallelStream().map(bucket -> {
-            return S3Bucket.builder()
-                    .name(bucket.getName().toLowerCase())
-                    .name(UUID.randomUUID().toString())
-                    .build();
-        }).forEach(bucket -> {
-            bucketRepo.save(bucket);
-        });
-        return false;
+        try {
+            amazonS3.listBuckets().parallelStream().map(bucket -> {
+                return S3Bucket.builder()
+                        .id(UUID.randomUUID().toString())
+                        .name(bucket.getName().toLowerCase())
+                        .build();
+            }).forEach(bucket -> {
+                bucketRepo.save(bucket);
+            });
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 
     @Override

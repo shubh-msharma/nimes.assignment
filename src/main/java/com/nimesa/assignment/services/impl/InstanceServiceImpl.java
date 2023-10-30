@@ -3,7 +3,7 @@ package com.nimesa.assignment.services.impl;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.services.ec2.AmazonEC2;
 import com.amazonaws.services.ec2.model.*;
-import com.nimesa.assignment.models.EC2Instance;
+import com.nimesa.assignment.models.entities.EC2Instance;
 import com.nimesa.assignment.models.dtos.ApiResponse;
 import com.nimesa.assignment.repositories.InstanceRepo;
 import com.nimesa.assignment.services.InstanceService;
@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.List;
 
 @Service
@@ -32,14 +33,15 @@ public class InstanceServiceImpl implements InstanceService {
                 for (Instance instance : reservation.getInstances()) {
                     EC2Instance ec2Instance = EC2Instance.builder()
                             .id(instance.getInstanceId())
+                            .createdOn(Instant.now())
                             .build();
                     instanceRepo.save(ec2Instance);
                 }
             }
-        } catch (SdkClientException e) {
+        } catch (Exception e) {
             e.getStackTrace();
         }
-        return false;
+        return true;
     }
 
     @Override

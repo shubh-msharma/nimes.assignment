@@ -1,6 +1,6 @@
 package com.nimesa.assignment.repositories;
 
-import com.nimesa.assignment.models.Job;
+import com.nimesa.assignment.models.entities.Job;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
